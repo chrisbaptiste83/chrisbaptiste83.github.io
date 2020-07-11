@@ -7,30 +7,6 @@ permalink:  cli_data_gem_project
 
 For my first project, I decided to create a CLI Gem that scrapes two websites for data and provides a user with a collection of the best weapons to have during a zombie apocalypse. I chose this topic for my project because I am a very big fanatic of firearms, zombie video games and zombie television. Initially, I was a bit nervous about creating a CLI gem from scratch. However, it eventually became a very fun experience and also a great demonstration on how much I've learned from the course so far. To get started on my gem, I used Avi's CLI Gem Walkthrough video. This video provided me with all of the information that I needed to start my gem and set up its environment. 
 
-
-    def self.scrape_melee_weapons
-      melee_weapons =[]
-        self.get_melee_weapons.each_with_index do |m_weapon, index| 
-          melee_weapon_details = {}
-          melee_weapon_details[:name] = m_weapon.text 
-            if index <=4
-          melee_weapon_details[:description] = @doc2.css("h2+p+p+p")[index].text
-          melee_weapon_details[:history]  = @doc2.css("h2+p+p")[index].text 
-          melee_weapon_details[:url] = @doc2.css("h2+p a")[index]["href"]  
-            elsif index >=6  
-          melee_weapon_details[:description] = @doc2.css("h2+p+p+p")[index-1].text
-          melee_weapon_details[:history]  = @doc2.css("h2+p+p")[index].text 
-          melee_weapon_details[:url] = @doc2.css("h2+p a")[index]["href"] 
-            else 
-          melee_weapon_details[:description] = "#{@doc2.css("h2+p+p")[index].text.split( '.' )[7..8].join(".").to_s}."   
-          melee_weapon_details[:history]  = "History: #{@doc2.css("h2+p+p")[index].text.split( '.' )[1..6].join(".").to_s}."
-          melee_weapon_details[:url]= @doc2.css("h2+p a")[index]["href"] 
-            end 
-    melee_weapons << melee_weapon_details
-      end 
-    melee_weapons 
-  end   
-end 
 <script src="https://gist.github.com/chrisbaptiste83/bde187210e81d7b679aadc1949e9f915.js"></script>
 
         My CLI gem allows a user to choose from two categories of weapons and then displays a list of the top ten weapons for each of the categories. Upon selecting a weapon from a given category, a user can access a title and description of the selected weapon. Depending on what type of weapon selected, a user is provided with a certain type of link to an external website.  The weapons on the melee weapons category have a link to an amazon page where the selected weapon is being sold, and the weapons on the firearms page have a link to an external website with additional information on the selected firearm. The melee weapons also have a brief history descritption in addition to the regular description. After selecting a weapon and being provided with these deails, a user then has the option of selecting another one of the type of weapon they had just selected, viewing the list of the weapons from the other category, or exiting the program. 
