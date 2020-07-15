@@ -1,7 +1,7 @@
 ---
 layout: post
-title:      "Rails with Javascript"
-date:       2020-04-08 22:09:37 +0000
+title:      "Asynchronous Javascript Requests and a Rails API"
+date:       2020-04-08 18:09:38 -0400
 permalink:  rails_with_javascript
 ---
 
