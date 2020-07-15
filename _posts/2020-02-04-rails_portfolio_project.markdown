@@ -5,7 +5,7 @@ date:       2020-02-04 12:58:14 -0500
 permalink:  rails_portfolio_project
 ---
 
-
+## Introduction 
 Completing my Rails project has made me realize why rails is very popular among software developers and has given me a glimpse of some of its amazing magic-like capabilities. For my project, I decided to create a cocktail recipe tracker application. I had previously done a cocktail recipe tracker with my Sinatra Project and wanted to use the same concept with Rails in order to compare my experiences with both frameworks.  
 ## Partials
 One of the things that I enjoyed doing the most during this project was incorporating partials in order to more effectively structure and organize my code. In Rails, a partial is a file that is part of a larger view. To indicate that this file is a partial, an underscore is prefixed to the filename. This file can then be rendered in within the code of a view page without having to re-write the code. For example, in my Rails application, there were various instances where I listed the collection of cocktail recipes. Rather than repeating this code throughout my views, I created a partial containing the code that displays a collection of cocktail recipes. 
