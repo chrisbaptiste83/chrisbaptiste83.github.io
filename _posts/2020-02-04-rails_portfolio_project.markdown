@@ -1,15 +1,36 @@
 ---
 layout: post
-title:      "Rails Portfolio Project"
-date:       2020-02-04 17:58:13 +0000
+title:      "Partials and Scope Methods in Rails"
+date:       2020-02-04 12:58:14 -0500
 permalink:  rails_portfolio_project
 ---
 
 
-Today I finally completed my Rails Portfolio Project. For me, completing this project was both a great challenge and a great learning experience. Learning how to create applications using Ruby on Rails has been one of my favorite parts of the course so far. It has made me realize why rails is very popular among software developers and has given me a glimpse of some of its amazing magic-like capabilitites. For my project, I decided to create a cocktail recipe tracker application. I had previously done a cocktail recipe tracker with my Sinatra Project and wanted to use the same concept with Rails in order to compare my experiences with both frameworks. 
+Completing my Rails project has made me realize why rails is very popular among software developers and has given me a glimpse of some of its amazing magic-like capabilities. For my project, I decided to create a cocktail recipe tracker application. I had previously done a cocktail recipe tracker with my Sinatra Project and wanted to use the same concept with Rails in order to compare my experiences with both frameworks.  
+## Partials
+One of the things that I enjoyed doing the most during this project was incorporating partials in order to more effectively structure and organize my code. In Rails, a partial is a file that is part of a larger view. To indicate that this file is a partial, an underscore is prefixed to the filename. This file can then be rendered in within the code of a view page without having to re-write the code. For example, in my Rails application, there were various instances where I listed the collection of cocktail recipes. Rather than repeating this code throughout my views, I created a partial containing the code that displays a collection of cocktail recipes. 
 
-Like my Sinatra Application, a user can create an account or log in to the application if they already have an account. I used the devise gem to handle most of the user authentication. Using gems while developing applications was also one thing that I became very familiar with while working on this project.Once users sign in, they are redirected to a profile page where they have a variety of options to choose from. A user can see the number of cocktail recipes that they have uploaded, along with links to see all cocktails, all cocktail categories, all cocktail ingredients, and all of the recipes that they have uploaded. Additionally, a user can see the cocktail recipe of the day, the most talked about cocktail recipe, and the five newest cocktail recipes while at the profile page. If a user vivsts the index page of all of the cocktail recipes, they are able to search the recipes by their title and also by their user. Once a user clicks on a cocktail recipe, they are taken to the recipe show page which displays all of a recipe's details. A user can click on the recipe category or ingredients and be taken to that category or ingredient show page where they are able to see all of the cocktails associated with that category or ingredient. Also, while at a recipe show page, a user can be shown the next or previous recipe (by aplhabetical order) by clciking on buttons displayed on the recipe. Users can edit, update, and delete only the recipes that they created. A user can also see a cocktail's comments and comment on any recipe. 
+#### Cocktails List Partial: 
+<script src="https://gist.github.com/chrisbaptiste83/9f2f7ffb1c09bff24ae0c7967a74f553.js"></script> 
 
-I would say that one of the greater challenges that I encountered while creating this application was establishing associations between my models. Furhtermore, creating the recipe form that receives the user input for the model attributes was also a challenge. Part of the requirement for the project was to establish a join model with a user submittable attribute. For me this was the quantity of every ingredient in the recipe. Establishing this relationship and building the form for the recipe with these associations in mind were, in my opinion, the most challenging parts of this project. Once I had that done, I was able to focus more on how a user would interact with my application. I used several gems to create my application. Among these were paperclip, devise, and the github omniauth gem. I used the paperclip gem to provide users the ability to upload images into the application. I used the devise gem mostly to handle user authentication and I used the omniauth gem to let users sign in with their github information. Overall, working on and completing this project really gave a a sense of being a programmer. It has also made me realize how much I continue to learn as I advance along the course and makes me super eager to learn more and more about application development.
+### Locals 
+
+When rendering partials, the locals parameter can be used to allow you to share a partial between different views.When we use locals, we need to make sure that the variables we refer to in our partial have the same names as the keys in our locals hash. Take a look at the partial for rendering a list of cocktail recipes being used multiple times on my application's profile page below.  
+
+#### Partials In Profile Page
+<script src="https://gist.github.com/chrisbaptiste83/aa8d47fc12c461b0297dcd38314e06d8.js"></script>
+
+### A Note on Locals
+
+When rendering the partials, the first key-value pair tells Rails the name of the partial to render ("cocktail_recipes/cocktail" and "cocktail_recipe/cocktails"). The second key-value pair specifies the locals as a Hash. That Hash's keys cocktail_recipe and cocktail_recipes here) will be created as local variables within the partial. When we use locals, we need to make sure that the variables we refer to in our partial have the same names as the keys in our locals hash. The way we use locals with a partial is similar to how we pass arguments into a method. In the locals Hash, when the cocktail_recipes: key is the argument name, the value of its argument is the value stored as cocktail_recipes.five_latest_cocktail_recipes and passed into the method. We can name the keys whatever we want. In this instance, we are calling a scope method on the value of the locals Hash. 
+
+## Scope Methods 
+Scopes are custom queries that you define inside your Rails models with the scope method. If you take a look at the code above, there are scope methods being defined on the values of the locals Hash when rendering the partials. I defined these methods in the CocktailRecipe class. Here take a look below: 
+<script src="https://gist.github.com/chrisbaptiste83/d17ac164fec15f85588484f3b553aeee.js"></script> 
+
+Scopes aren’t doing anything magical or super special. They’re just methods. In fact… You could do the same thing using class methods! However, there are design advantages to using scopes over class methods. Here’s why:
+scopes result in cleaner code because of their syntax, scopes are used for exactly one thing, so you know what you get the moment you see one, and scopes aren’t mixed with other methods, so they’re easier to spot. In terms of functionality, the only difference is that scopes guarantee an ActiveRecord::Relation, and class methods don’t. This helps you avoid errors when your scope returns nothing. 
+
+##### Check out my Github repo [here](https://github.com/chrisbaptiste83/rails-cocktail-app).
 
 
