@@ -1,11 +1,11 @@
 # Site settings
 author: Christopher Baptiste
-title: Christopher Baptiste's Blog
+title: Christopher's Blog
 header-img: img/home-bg.png
 email: chrisbaptiste83@gmail.com
 copyright_name: Christopher Baptiste
 description: > # this means to ignore newlines until "baseurl:"
-  My Journey Towards Becoming a Developer
+  Web Development 
 baseurl: "" # the subpath of your site, e.g. /blog
 twitter_username: 
 github_username:  chrisbaptiste83
