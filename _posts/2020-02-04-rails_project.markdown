@@ -1,14 +1,35 @@
 ---
 layout: post
-title:      "Rails Project"
-date:       2020-02-04 18:01:18 +0000
+title:      "Ruby Applications and Rack  "
+date:       2020-02-04 13:01:19 -0500
 permalink:  rails_project
 ---
 
+## What Is Rack? 
+Rack is what is happening behind the scenes in every application built using Rails, Sinatra, and any of the other Ruby frameworks. Rack is the layer between these frameworks and the application server. All web servers have a core architecture in common. By looking at it, we can build a mental model for how all web servers work. All of them  look at an HTTP request and look at the HTTP verb and path and then run some conditional logic to find out which stuff to send back. In Ruby based applications, this process is handled by Rack.  
 
-The content of your bloToday I finally completed my Rails Portfolio Project. For me, completing this project was both a great challenge and a great learning experience. Learning how to create applications using Ruby on Rails has been one of my favorite parts of the course so far. It has made me realize why rails is very popular among software developers and has given me a glimpse of some of its amazing magic-like capabilitites. For my project, I decided to create a cocktail recipe tracker application. I had previously done a cocktail recipe tracker with my Sinatra Project and wanted to use the same concept with Rails in order to compare my experiences with both frameworks. 
+## Why Do We Use Rack?  
+Rack allows for different servers and frameworks to be interchangeable. They become components that you can then plug in. It really does not matter what framework or server you are using if they implement the Rack interface. With Rack, every component does its job and everyone is happy. 
 
-Like my Sinatra Application, a user can create an account or log in to the application if they already have an account. I used the devise gem to handle most of the user authentication. Using gems while developing applications was also one thing that I became very familiar with while working on this project.Once users sign in, they are redirected to a profile page where they have a variety of options to choose from. A user can see the number of cocktail recipes that they have uploaded, along with links to see all cocktails, all cocktail categories, all cocktail ingredients, and all of the recipes that they have uploaded. Additionally, a user can see the cocktail recipe of the day, the most talked about cocktail recipe, and the five newest cocktail recipes while at the profile page. If a user vivsts the index page of all of the cocktail recipes, they are able to search the recipes by their title and also by their user. Once a user clicks on a cocktail recipe, they are taken to the recipe show page which displays all of a recipe's details. A user can click on the recipe category or ingredients and be taken to that category or ingredient show page where they are able to see all of the cocktails associated with that category or ingredient. Also, while at a recipe show page, a user can be shown the next or previous recipe (by aplhabetical order) by clciking on buttons displayed on the recipe. Users can edit, update, and delete only the recipes that they created. A user can also see a cocktail's comments and comment on any recipe. 
+## Setting Up Rack 
+A Rack application is a class with one method: call. However, new instances of the Proc class are run by calling call on them, so one could simply use a Proc. All this method needs to do is return an Array with three elements: An HTTP Status code where 200 is used for OK, a hash with a "Content-Type" key that returns the value (for HTML-based documents) of text/html, and something that responds to each which contains the multiple lines of a document of the "Content-Type"'s type (here, Strings that look like HTML: "<p>Like this!</p>". (Usually an array). It looks like this:
 
-I would say that one of the greater challenges that I encountered while creating this application was establishing associations between my models. Furhtermore, creating the recipe form that receives the user input for the model attributes was also a challenge. Part of the requirement for the project was to establish a join model with a user submittable attribute. For me this was the quantity of every ingredient in the recipe. Establishing this relationship and building the form for the recipe with these associations in mind were, in my opinion, the most challenging parts of this project. Once I had that done, I was able to focus more on how a user would interact with my application. I used several gems to create my application. Among these were paperclip, devise, and the github omniauth gem. I used the paperclip gem to provide users the ability to upload images into the application. I used the devise gem mostly to handle user authentication and I used the omniauth gem to let users sign in with their github information. Overall, working on and completing this project really gave a a sense of being a programmer. It has also made me realize how much I continue to learn as I advance along the course and makes me super eager to learn more and more about application development.
+<script src="https://gist.github.com/chrisbaptiste83/6a1621b54bf9fe1532ab39112f3342f4.js"></script> 
+
+This code will start a server on port 8080. The array being returned contains the HTTP status code, the HTTP headers, and the contents ("Hello from Rack). 
+
+## Example of Using Rack Middleware 
+The following is an example of chaining a rack application and middleware so they work together: 
+
+### Given the following Rack app:  
+<script src="https://gist.github.com/chrisbaptiste83/0d0e9258fb1593d83e34c178687ba40e.js"></script>
+
+ ### And the middleware:  
+<script src="https://gist.github.com/chrisbaptiste83/693b13e1d79996ac7ba86331117c43a1.js"></script>
+ 
+ ### This how we combine them together: 
+ <script src="https://gist.github.com/chrisbaptiste83/4cdeefab3f05a469ca9e3120547bafa4.js"></script>
+
+In this example, we have two Rack applications.One is for the IP check(FilterLocalHost). The other is for the application itself to deliver the content (HTML,JSON, etc). Notice that @app.call(env), that's what makes FIlterLocalHost a middleware. When this application is ran, one of two things can happen: we can return a response, which stops the middleware chain, or we pass a request along with @app.call(env) to the next middleware, or the app itself. 
+
 
