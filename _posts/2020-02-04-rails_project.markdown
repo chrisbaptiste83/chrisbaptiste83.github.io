@@ -21,13 +21,13 @@ This code will start a server on port 8080. The array being returned contains th
 ## Example of Using Rack Middleware 
 The following is an example of chaining a rack application and middleware so they work together: 
 
-### Given the following Rack app:  
+#### Given the following Rack app:  
 <script src="https://gist.github.com/chrisbaptiste83/0d0e9258fb1593d83e34c178687ba40e.js"></script>
 
- ### And the middleware:  
+ #### And the middleware:  
 <script src="https://gist.github.com/chrisbaptiste83/693b13e1d79996ac7ba86331117c43a1.js"></script>
  
- ### This how we combine them together: 
+ #### This how we combine them together: 
  <script src="https://gist.github.com/chrisbaptiste83/4cdeefab3f05a469ca9e3120547bafa4.js"></script>
 
 In this example, we have two Rack applications.One is for the IP check(FilterLocalHost). The other is for the application itself to deliver the content (HTML,JSON, etc). Notice that @app.call(env), that's what makes FIlterLocalHost a middleware. When this application is ran, one of two things can happen: we can return a response, which stops the middleware chain, or we pass a request along with @app.call(env) to the next middleware, or the app itself. 
