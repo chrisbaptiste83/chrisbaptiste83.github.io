@@ -1,6 +1,6 @@
 ---
 layout: post
-title:      "Adding Thunk Middleware To My React/Redux Application "
+title:      "Adding Thunk Middleware To A React/Redux Application "
 date:       2020-06-02 09:22:07 -0400
 permalink:  react_redux_portfolio_project
 ---
