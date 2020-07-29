@@ -6,8 +6,9 @@ permalink:  rails_with_javascript
 ---
 
 ## My Rails with Javascript Application: Chris's Cocktails 
-### Overview of Completing the Application
-For my rails with Javascript project, I decided to build an application similar to what I had built for my rails project. Rather than implementing Javascript to my existing rails application like I had originally planned to do, I challenged myself to create most of my application's functionality with Javascript. One of the things that I enjoyed learning the most from this module was creating Javascript methods that render html code and then interacting with it. This module provided me with a vast amount of knowledge concerning the application of Javascript in the front end of web applications. Prior to the start of this module, I was very curious to learn how Javascript methods can influence the appearance of an application and even more so as to how Javascript code could be tested in a browser console or how it is able to target specific html nodes.  
+### Overview of Completing the Application 
+
+For my rails with Javascript project, I decided to build an application similar to what I had built for my Rails project. Rather than implementing Javascript to my existing rails application like I had originally planned to do, I challenged myself to create most of my application's functionality with Javascript. One of the things that I enjoyed learning the most from this module was creating Javascript methods that render html code and then interacting with it. This module provided me with a vast amount of knowledge concerning the application of Javascript in the front end development of web applications. Prior to the start of this module, I was very curious to learn how Javascript methods can influence the appearance of an application and even more so as to how Javascript code could be tested in a browser console or how it is able to target specific html nodes.  
 
 ### Project Requirements: Application Functionality and Features
 
@@ -15,3 +16,18 @@ The requirements for this project consisted of having various fetch requests fro
 
 ## Implementing Asynchronous Javascript Requests into Application 
 
+### What is JSON? 
+
+In a nutshell, JSON is a format that programmers use to send data across the internet. It stands for Javascript Object Notation. Typically, a response from a fetch request is formatted in JSON and a .then method gets chained onto the promise that is returned as callback, and then some more of the application's logic is executed with the response. Here take a look at an example from my app below: 
+
+<script src="https://gist.github.com/chrisbaptiste83/db62f33cd8ed0b5f067404a2ab304b02.js"></script> 
+
+Here we can see that the CocktailAPI class contains the static method that actually conducts the fetch request to my application's API, posting information onto it. This method gets called in static create method in the Cocktail class, and a callback method is chained onto the response creating a new instance of the Cocktail class with the information from the request's response. 
+
+### Types Of Fetch Requests Used in Application 
+
+Here is what my API class looks like. This is the class where all of my application's fetch requests are located: 
+
+<script src="https://gist.github.com/chrisbaptiste83/167f1a904f09fa5fc062c6f8557550c4.js"></script> 
+
+#### Check out my github repo [here](https://github.com/chrisbaptiste83/rails-with-js-project)
