@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Introduction To React Hooks"
-date:       2020-09-13 19:41:52 +0000
+date:       2020-09-13 15:41:52 -0400
 permalink:  introduction_to_react_hooks
 ---
 
