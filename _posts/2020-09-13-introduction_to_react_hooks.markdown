@@ -6,7 +6,7 @@ permalink:  introduction_to_react_hooks
 ---
 
 
-#### Prior to React 16.8, the only way for components to have and use state is to make them class components. However, this is currently no longer the case thanks to the addition of Hooks to React. The greatest thing about the addition of React Hooks is the fact that they are completely opt in, 100% backwards compatible, and available immediately. This means that they can be implemented into any React code without breaking changes. Furthermore, Hooks provide a more direct API to concepts most React developers already know (props, state, context, and lifecycle) rather than replace their existing knowledge. Let's take a look at an example of React Hooks in action. 
+#### Prior to React 16.8, the only way for components to have and use state was to make them class components. However, this is currently no longer the case thanks to the addition of Hooks to React. The greatest thing about the addition of React Hooks is the fact that they are completely opt in, 100% backwards compatible, and available immediately. This means that they can be implemented into any React code without breaking changes. Furthermore, Hooks provide a more direct API to concepts most React developers already know (props, state, context, and lifecycle) rather than replace their existing knowledge. Let's take a look at an example of React Hooks in action. 
 
 #### What is a Hook? A Hook is a special function that lets you “hook into” React features. For example, useState is a Hook that lets you add React state to function components. A commonly used Hook is the useState Hook. Let's take a look at the example below. First, we must import the useState Hook from React.
 
