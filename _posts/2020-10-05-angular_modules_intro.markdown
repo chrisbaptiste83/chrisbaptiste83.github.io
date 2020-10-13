@@ -1,6 +1,6 @@
 ---
 layout: post
-title:      "Angular Modules Intro"
+title:      "Angular Modules "
 date:       2020-10-05 03:18:04 -0400
 permalink:  angular_modules_intro
 ---
